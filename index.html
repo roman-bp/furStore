@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин Мебели</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Производство мебели</h1>
+            <p>Мебель на заказ по вашим эскизам</p>
+            <a href="#" class="btn">Перейти в каталог</a>
+        </section>
+
+        <section class="filters">
+            <h2>Фильтры</h2>
+            <div class="filter-group">
+                <label for="category">Категория:</label>
+                <select id="category">
+                    <option value="all">Все</option>
+                    <option value="sofa">Диваны</option>
+                    <option value="armchair">Кресла</option>
+                    <option value="table">Столы</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="sort">Сортировать по:</label>
+                <select id="sort">
+                    <option value="price-asc">Цене (возрастанию)</option>
+                    <option value="price-desc">Цене (убыванию)</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="products">
+            <h2>Наши изделия</h2>
+            <div class="product-grid" id="product-grid">
+                <!-- Здесь будут динамически добавляться карточки товаров -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section class="contact-form">
+            <h2>Контактная форма</h2>
+            <form id="contact-form">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="message">Сообщение:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+        
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+
+        <p>Напишите нам: info@example.com</p>
+    </footer>
+
+    <!-- Модальное окно корзины -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <span class="close">&times;</span>
+            <h2>Корзина</h2>
+            <div id="cart-items"></div>
+            <p id="cart-total">Итого: 0 грн.</p>
+            <button id="checkout" class="btn">Оформить заказ</button>
+        </div>
+    </div>
+
+    <script src="product.js"></script>
+    <script src="sort.js"></script>
+    <script src="cart.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

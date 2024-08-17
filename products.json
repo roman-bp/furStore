@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "Диван Комфорт",
+        "image": "sofa1.jpg",
+        "category": "sofa",
+        "price": "20000 грн",
+        "description": "Удобный и стильный диван для вашего дома."
+    },
+    {
+        "id": "2",
+        "name": "Кресло Элегант",
+        "image": "armchair1.jpg",
+        "category": "armchair",
+        "price": "12000 грн",
+        "description": "Элегантное кресло с мягкими подлокотниками."
+    },
+    {
+        "id": "3",
+        "name": "Обеденный стол Винтаж",
+        "image": "table1.jpg",
+        "category": "table",
+        "price": "15000 грн",
+        "description": "Стол в стиле винтаж для вашей столовой."
+    }
+]
