@@ -1,9 +1,10 @@
-// main.js
 document.addEventListener('DOMContentLoaded', function() {
     const productGrid = document.getElementById('product-grid');
     const categorySelect = document.getElementById('category');
     const sortSelect = document.getElementById('sort');
     let products = [];
+
+    
 
     function fetchProducts() {
         fetch('products.json')
@@ -51,22 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleAddToCart(event) {
         if (event.target.classList.contains('add-to-cart')) {
             const id = event.target.dataset.id;
-            const product = products.find(p => p.id === id);
-            if (product) {
-                document.dispatchEvent(new CustomEvent('add-to-cart', { detail: product }));
-            }
+            addToCart(id);
         }
     }
 
-    if (categorySelect) {
-        categorySelect.addEventListener('change', updateProductGrid);
-    }
-
-    if (sortSelect) {
-        sortSelect.addEventListener('change', updateProductGrid);
-    }
-
-    document.addEventListener('click', handleAddToCart);
+    categorySelect.addEventListener('change', updateProductGrid);
+    sortSelect.addEventListener('change', updateProductGrid);
+    productGrid.addEventListener('click', handleAddToCart);
 
     fetchProducts();
 });
