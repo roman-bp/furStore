@@ -1,71 +1,84 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин Мебели</title>
+    <title>Магазин Меблів</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#">Главная</a></li>
+                <li><a href="#">Головна</a></li>
                 <li><a href="#">Каталог</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Про нас</a></li>
+                <li><a href="#">Контакти</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Производство мебели</h1>
-            <p>Мебель на заказ по вашим эскизам</p>
-            <a href="#" class="btn" onclick="toggleCartModal(event)">Корзина (0)</a>
+            <h1>Виробництво меблів</h1>
+            <p>Меблі на замовлення за вашими ескізами</p>
+            <a href="#" class="btn" onclick="toggleCartModal(event)">Кошик (0)</a>
         </section>
 
         <section class="filters">
-            <h2>Фильтры</h2>
+            <h2>Фільтри</h2>
             <div class="filter-group">
-                <label for="category">Категория:</label>
+                <label for="category">Категорія:</label>
                 <select id="category">
-                    <option value="all">Все</option>
-                    <option value="sofa">Диваны</option>
-                    <option value="armchair">Кресла</option>
-                    <option value="table">Столы</option>
+                    <option value="all">Усі</option>
+                    <option value="sofa">Дивани</option>
+                    <option value="armchair">Крісла</option>
+                    <option value="table">Столи</option>
                 </select>
             </div>
 
             <div class="filter-group">
-                <label for="sort">Сортировать по:</label>
+                <label for="sort">Сортувати за:</label>
                 <select id="sort">
-                    <option value="price-asc">Цене (возрастанию)</option>
-                    <option value="price-desc">Цене (убыванию)</option>
+                    <option value="price-asc">Ціною (зростання)</option>
+                    <option value="price-desc">Ціною (спадання)</option>
                 </select>
             </div>
         </section>
 
         <section class="products">
-            <h2>Наши изделия</h2>
+            <h2>Наші вироби</h2>
             <div class="product-grid" id="product-grid">
-                <!-- Здесь будут динамически добавляться карточки товаров -->
+                <!-- Тут будуть динамічно додаватися картки товарів -->
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Напишите нам: info@example.com</p>
+        <p>Напишіть нам: info@example.com</p>
     </footer>
 
-    <!-- Модальное окно корзины -->
+    <!-- Модальне вікно кошика -->
     <div id="cart-modal" class="cart-modal">
         <div class="cart-modal-content">
             <span class="close" onclick="toggleCartModal(event)">&times;</span>
-            <h2>Корзина</h2>
+            <h2>Кошик</h2>
             <div id="cart-items"></div>
-            <p id="cart-total">Итого: 0 грн.</p>
-            <button id="checkout" class="btn" onclick="checkout()">Оформить заказ</button>
+            <p id="cart-total">Разом: 0 грн.</p>
+
+            <!-- Нові поля -->
+            <div class="customer-details">
+                <label for="customer-name">Ім'я:</label>
+                <input type="text" id="customer-name" required>
+
+                <label for="customer-address">Адреса:</label>
+                <input type="text" id="customer-address" required>
+
+                <label for="customer-phone">Телефон:</label>
+                <input type="text" id="customer-phone" required>
+            </div>
+
+            <button id="checkout" class="btn" onclick="checkout()">Оформити замовлення</button>
         </div>
     </div>
 

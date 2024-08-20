@@ -11,11 +11,19 @@ let products = [];
 const TELEGRAM_BOT_TOKEN = '6852234273:AAGtNELD5wP9Kw-SOx_9l8uPKyS9fPj8aCk';  // Replace with your bot token
 const TELEGRAM_CHAT_ID = '720338217';  // Replace with your Telegram chat ID
 
-function sendOrderToTelegram(cartItems, total) {
+function sendOrderToTelegram(cartItems, total, customerName, customerAddress, customerPhone) {
     let message = `Нове замовлення:
 
 `;
     
+    message += `Ім'я: ${customerName}
+`;
+    message += `Адреса: ${customerAddress}
+`;
+    message += `Телефон: ${customerPhone}
+
+`;
+
     cartItems.forEach(item => {
         message += `${item.name} - ${item.quantity} шт. за ${item.price} грн
 `;
@@ -132,11 +140,16 @@ document.addEventListener('click', function(event) {
 // Функция оформления замовлення
 function checkout() {
     const total = cart.reduce((acc, item) => acc + parseFloat(item.price.replace(/[^0-9.-]+/g, '')) * item.quantity, 0);
+
+    // Отримуємо дані клієнта
+    const customerName = document.getElementById('customer-name').value;
+    const customerAddress = document.getElementById('customer-address').value;
+    const customerPhone = document.getElementById('customer-phone').value;
     
-    if (cart.length > 0) {
-        sendOrderToTelegram(cart, total);
+    if (cart.length > 0 && customerName && customerAddress && customerPhone) {
+        sendOrderToTelegram(cart, total, customerName, customerAddress, customerPhone);
     } else {
-        alert('Ваша корзина порожня.');
+        alert('Будь ласка, заповніть всі поля і додайте товари до корзини.');
     }
 
     cart = [];
