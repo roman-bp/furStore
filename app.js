@@ -7,6 +7,46 @@ const cartTotal = document.getElementById('cart-total');
 const cartButton = document.querySelector('.hero .btn');
 let products = [];
 
+// Telegram bot integration
+const TELEGRAM_BOT_TOKEN = '6852234273:AAGtNELD5wP9Kw-SOx_9l8uPKyS9fPj8aCk';  // Replace with your bot token
+const TELEGRAM_CHAT_ID = '720338217';  // Replace with your Telegram chat ID
+
+function sendOrderToTelegram(cartItems, total) {
+    let message = `Нове замовлення:
+
+`;
+    
+    cartItems.forEach(item => {
+        message += `${item.name} - ${item.quantity} шт. за ${item.price} грн
+`;
+    });
+
+    message += `
+Загальна сума: ${total.toFixed(2)} грн`;
+
+    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: message
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            alert('Замовлення відправлено до Telegram!');
+        } else {
+            alert('Помилка при відправці замовлення.');
+        }
+    })
+    .catch(error => console.error('Помилка:', error));
+}
+
 // Функция добавления товара в корзину
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
@@ -88,6 +128,21 @@ document.addEventListener('click', function(event) {
         removeFromCart(id);
     }
 });
+
+// Функция оформления замовлення
+function checkout() {
+    const total = cart.reduce((acc, item) => acc + parseFloat(item.price.replace(/[^0-9.-]+/g, '')) * item.quantity, 0);
+    
+    if (cart.length > 0) {
+        sendOrderToTelegram(cart, total);
+    } else {
+        alert('Ваша корзина порожня.');
+    }
+
+    cart = [];
+    updateCart();
+    toggleCartModal(new Event('click')); // Закрити корзину після оформлення замовлення
+}
 
 // Загрузка товаров и отображение их на странице
 document.addEventListener('DOMContentLoaded', function() {
