@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -5,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Подробности продукта</title>
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Підключення Slick Carousel -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 <body>
     <header>
@@ -21,6 +28,9 @@
     <main>
         <section class="product-detail">
             <!-- Подробности продукта будут загружены динамически -->
+            <div class="product-carousel">
+                <!-- Динамічно вставлені зображення -->
+            </div>
         </section>
     </main>
 
@@ -28,6 +38,45 @@
         <p>Напишите нам: info@example.com</p>
     </footer>
 
-    <script src="product.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productDetail = document.querySelector('.product-detail');
+            const productId = new URLSearchParams(window.location.search).get('id');
+
+            fetch('products.json')
+                .then(response => response.json())
+                .then(data => {
+                    const product = data.find(p => p.id === productId);
+                    if (product) {
+                        let imageSlides = '';
+                        product.images.forEach(image => {
+                            imageSlides += `<div><img src="\${image}" alt="\${product.name}" class="product-image"></div>`;
+                        });
+
+                        productDetail.innerHTML = `
+                            <h1>\${product.name}</h1>
+                            <div class="product-carousel">
+                                \${imageSlides}
+                            </div>
+                            <p>Цена: \${product.price}</p>
+                            <p>\${product.description}</p>
+                            <button onclick="addToCart('\${product.id}')">Добавить в корзину</button>
+                        `;
+
+                        // Ініціалізуємо карусель після додавання елементів
+                        $('.product-carousel').slick({
+                            dots: true,
+                            infinite: true,
+                            speed: 300,
+                            slidesToShow: 1,
+                            adaptiveHeight: true
+                        });
+                    } else {
+                        productDetail.innerHTML = `<p>Продукт не найден.</p>`;
+                    }
+                })
+                .catch(error => console.error('Ошибка загрузки продукта:', error));
+        });
+    </script>
 </body>
 </html>

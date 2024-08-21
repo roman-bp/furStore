@@ -57,7 +57,7 @@ nav ul li a {
 }
 
 .hero {
-    background: url('image/magHero.jpeg') no-repeat center center/cover;
+    background: url('images/magHero.jpeg') no-repeat center center/cover;
     color: var(--header-text-color);
     text-align: center;
     padding: 100px 20px;
@@ -322,4 +322,16 @@ footer {
 
 .cart-modal-content #checkout:hover {
     background-color: var(--button-hover-background-color);
+}
+.product-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Максимальна висота, якщо потрібно */
+    object-fit: cover; /* Щоб зображення не деформувалися */
+}
+.product-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
 }
