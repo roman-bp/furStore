@@ -2,7 +2,7 @@
     {
         "id": "1",
         "name": "Барний стул",
-        "image": ["images/barStul4.jpeg", "images/stol1.jpeg"],
+        "image": "images/barStul4.jpeg", 
         "category": "barStul",
         "price": "1000 грн",
         "description": "високий стілець."
