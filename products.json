@@ -1,26 +1,26 @@
 [
     {
         "id": "1",
-        "name": "Барний стул",
-        "image": "images/barStul4.jpeg", 
-        "category": "barStul",
+        "name": "1к хрещатик 23",
+        "image": "images/1кKrechatic.jpeg", 
+        "category": "1к",
         "price": "1000 грн",
         "description": "високий стілець."
     },
     {
         "id": "2",
-        "name": "Меблі садові",
-        "image": "images/stol1.jpeg",  
-        "category": "garden furniture",
-        "price": "12000 грн",
-        "description": "чудові садові меблі."
+        "name": "2к хрещатик 14",
+        "image": "images/2кKreschatic.jpeg",  
+        "category": "2k",
+        "price": "2000 грн",
+        "description": "супер квартира."
     },
     {
         "id": "3",
-        "name": "Обідній стіл",
-        "image": "images/stol4.jpeg",  
-        "category": "table",
+        "name": "3к хрещатик 1",
+        "image": "images/3kKreschatic.jpeg",  
+        "category": "3к",
         "price": "4000 грн",
-        "description": "чудовий стіл для великої родини."
+        "description": "ШИК."
     }
 ]
