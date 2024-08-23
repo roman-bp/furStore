@@ -25,6 +25,6 @@ function updateCart() {
         cartItems.appendChild(cartItem);
     });
 
-    cartTotal.textContent = `Ітого: ${total.toFixed(2)} грн.`;
-    cartButton.textContent = `Корзина (${cart.length})`;
+   // cartTotal.textContent = `Ітого: ${total.toFixed(2)} грн.`;
+    cartButton.textContent = `замовити перегляд (${cart.length})`;
 }

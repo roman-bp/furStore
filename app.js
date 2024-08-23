@@ -139,8 +139,8 @@ function updateCart() {
         cartItems.appendChild(cartItem);
     });
 
-    cartTotal.textContent = `Ітого: ${total.toFixed(2)} грн.`;
-    cartButton.textContent = `Корзина (${cart.length})`;
+    //cartTotal.textContent = `Ітого: ${total.toFixed(2)} грн.`;
+    cartButton.textContent = `Замовити перегляд (${cart.length})`;
 }
 
 function toggleCartModal(event) {
@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="${product.image}" alt="${product.name}">
                 <h3>${product.name}</h3>
                 <p>${product.price}</p>
-                <button class="add-to-cart" data-id="${product.id}">Добавити в корзину</button>
+                <button class="add-to-cart" data-id="${product.id}">Хочу перегляд об'екту</button>
             `;
             productGrid.appendChild(productCard);
         });
