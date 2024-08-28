@@ -326,7 +326,7 @@ footer {
 .product-image {
     width: 100%;
     height: auto;
-    max-height: 400px; /* Максимальна висота, якщо потрібно */
+    max-height: 400px; /* Максимальна висота, якщо потіваамрібно */
     object-fit: cover; /* Щоб зображення не деформувалися */
 }
 .product-image {
