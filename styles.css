@@ -4,7 +4,7 @@
     --font-family: Arial, sans-serif;
     --background-color: #f5f5f5;
     --header-background-color: #333;
-    --header-text-color: rgb(255, 255, 255);
+    --header-text-color: white;
     --primary-color: #ff5722;
     --secondary-color: #e64a19;
     --text-color: #666;
@@ -57,16 +57,14 @@ nav ul li a {
 }
 
 .hero {
-    background: url('images/rEhero.jpeg') no-repeat center center/cover;
+    background: url('images/magHero.jpeg') no-repeat center center/cover;
     color: var(--header-text-color);
     text-align: center;
-    opacity: 0.9;
     padding: 100px 20px;
 }
 
 .hero h1 {
-    
-    font-size: 3.5em;
+    font-size: 3em;
     margin-bottom: 10px;
 }
 
@@ -328,7 +326,7 @@ footer {
 .product-image {
     width: 100%;
     height: auto;
-    max-height: 400px; /* Максимальна висота, якщо потрібно */
+    max-height: 400px; /* Максимальна висота, якщо потіваамрібно */
     object-fit: cover; /* Щоб зображення не деформувалися */
 }
 .product-image {
